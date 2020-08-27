@@ -698,8 +698,8 @@ class UbloxGps(object):
         :return: Scaled verasion of the given payload.
         :rtype: namedtuple
         """
-        pr_res = nav_payload.prRes
-        nav_payload = nav_payload._replace(prRes= pr_res * 0.1)
+        # pr_res = nav_payload.prRes
+        # nav_payload = nav_payload._replace(prRes= pr_res * 0.1)
 
         return nav_payload
 
