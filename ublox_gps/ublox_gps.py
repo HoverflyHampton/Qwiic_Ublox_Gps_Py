@@ -695,11 +695,12 @@ class UbloxGps(object):
         This takes the UBX-NAV-SAT payload and scales the relevant fields
         as it's described in the datasheet.
 
-        :return: Scaled verasion of the given payload.
+        :return: Scaled version of the given payload.
         :rtype: namedtuple
         """
-        # pr_res = nav_payload.prRes
-        # nav_payload = nav_payload._replace(prRes= pr_res * 0.1)
+        for idx, satellite in enumerate(nav_payload.RB):
+            pr_res = satellite.prRes
+            nav_payload.RB[idx] = nav_payload.RB[idx]._replace(prRes= pr_res * 0.1)
 
         return nav_payload
 
